@@ -1,0 +1,30 @@
+# ---- Java / Maven (backend) ----
+target/
+*.jar
+*.war
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+
+# ---- Node / Next.js (frontend) ----
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+.next/
+next-env.d.ts
+
+# ---- Logs e temporarios desta sessao ----
+*.log
+cp.txt
+
+# ---- Ambiente ----
+.env
+.env.*
+!.env.example
+
+# ---- Editores / SO ----
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

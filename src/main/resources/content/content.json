@@ -1,0 +1,182 @@
+{
+  "method": [
+    { "letter": "C", "title": "Calma", "description": "Pare antes de reagir. Mensagens feitas para enganar querem pressa, medo ou raiva." },
+    { "letter": "L", "title": "Leia além do título", "description": "Abra a notícia inteira. Títulos exagerados muitas vezes não batem com o texto." },
+    { "letter": "A", "title": "Autor e origem", "description": "Quem publicou? Existe um veículo, um autor e uma data? Encaminhada sem origem pede cuidado." },
+    { "letter": "R", "title": "Reconfirme", "description": "Procure a mesma informação em outras fontes confiáveis e independentes." },
+    { "letter": "E", "title": "Examine imagens e áudios", "description": "Faça busca reversa de imagens e desconfie de áudios e vídeos sem contexto." },
+    { "letter": "I", "title": "Intenção", "description": "Quem ganha se você acreditar? A mensagem pede dinheiro, dados ou cliques?" },
+    { "letter": "A", "title": "Avalie e decida", "description": "Só compartilhe o que conseguiu confirmar. Na dúvida, não repasse." }
+  ],
+  "cases": [
+    {
+      "id": 0, "kind": "Corrente", "who": "Encaminhada com frequência", "where": "Grupo da família · 07:42", "avatar": "?",
+      "headline": "URGENTE: vacina da gripe será suspensa no país a partir de amanhã, avisa médico. Repasse para todos!",
+      "media": null, "truth": "fab",
+      "signals": [
+        { "type": "a", "text": "Pede para repassar a todos, com tom de urgência" },
+        { "type": "a", "text": "“Um médico” sem nome, sem instituição" },
+        { "type": "a", "text": "Sem link, sem data, sem veículo responsável" },
+        { "type": "a", "text": "Anúncio nacional que só aparece em corrente" }
+      ],
+      "steps": [0, 2, 3, 6],
+      "note": "Na simulação, esta mensagem foi fabricada. Uma decisão nacional sobre vacinas seria anunciada por órgãos oficiais de saúde e noticiada por vários veículos."
+    },
+    {
+      "id": 1, "kind": "Notícia", "who": "Jornal do Vale Azul", "where": "Por Marina Teles · 12 mar.", "avatar": "JV",
+      "headline": "Prefeitura de Vale Azul abre 2 mil vagas em curso gratuito de programação",
+      "media": "Link no texto para o edital no site oficial da prefeitura", "truth": "real",
+      "signals": [
+        { "type": "t", "text": "Veículo identificado, com autora e data" },
+        { "type": "t", "text": "Aponta para o edital no site oficial" },
+        { "type": "t", "text": "Tom informativo, sem pedir repasse" },
+        { "type": "c", "text": "Vale abrir o edital e conferir datas e requisitos" }
+      ],
+      "steps": [2, 3, 6],
+      "note": "Na simulação, esta notícia era verdadeira. Mesmo assim, o caminho mais seguro é conferir o edital no site oficial antes de repassar."
+    },
+    {
+      "id": 2, "kind": "Foto", "who": "Perfil Notícias Já VA", "where": "Rede social · há 2 h", "avatar": "NJ",
+      "headline": "Olha como está o centro de Vale Azul AGORA! Ninguém está mostrando isso!",
+      "media": "Foto de rua alagada com carros submersos", "truth": "ctx",
+      "signals": [
+        { "type": "a", "text": "“Ninguém está mostrando” sugere que a imprensa esconde algo" },
+        { "type": "c", "text": "Perfil sem veículo responsável por trás" },
+        { "type": "a", "text": "Nenhuma data ou local visível na própria foto" },
+        { "type": "c", "text": "A busca reversa mostra que a foto é antiga e de outra cidade" }
+      ],
+      "steps": [0, 2, 4],
+      "note": "Na simulação, a foto era real, mas de outra cidade e de anos atrás. É o tipo mais comum de desinformação: conteúdo verdadeiro fora de contexto."
+    },
+    {
+      "id": 3, "kind": "Áudio", "who": "Diretor Paulo (escola)", "where": "Grupo de pais · 21:15", "avatar": "P",
+      "headline": "Áudio de 0:38: “Pessoal, precisamos fechar a formatura hoje. Façam o Pix de R$ 150 para esta chave até meia-noite.”",
+      "media": "Mensagem de voz encaminhada", "truth": "fab",
+      "signals": [
+        { "type": "a", "text": "Pressão de prazo curtíssimo" },
+        { "type": "a", "text": "Pagamento por Pix para chave pessoal" },
+        { "type": "a", "text": "Pedido feito só por áudio, fora dos canais da escola" },
+        { "type": "c", "text": "Vozes podem ser imitadas por IA com poucos segundos de gravação" }
+      ],
+      "steps": [0, 4, 5, 6],
+      "note": "Na simulação, era um deepfake de voz. Antes de pagar, confirme pelo telefone oficial da escola ou pessoalmente."
+    },
+    {
+      "id": 4, "kind": "Notícia", "who": "Portal Saúde Total", "where": "Saúde · 3 dias atrás", "avatar": "ST",
+      "headline": "Chocolate amargo reduz em 80% o risco de infarto, diz estudo",
+      "media": "No fim do texto: estudo com 40 voluntários, que encontrou uma associação", "truth": "ctx",
+      "signals": [
+        { "type": "a", "text": "Número impressionante no título" },
+        { "type": "c", "text": "O estudo citado é pequeno: 40 pessoas" },
+        { "type": "a", "text": "Associação foi apresentada como causa" },
+        { "type": "t", "text": "O texto cita o estudo, o que permite conferir" }
+      ],
+      "steps": [1, 3, 6],
+      "note": "Na simulação, o estudo existia, mas o título exagerou o resultado. Ler além do título e ir à fonte original mostra a diferença."
+    },
+    {
+      "id": 5, "kind": "Vídeo", "who": "Anúncio patrocinado", "where": "Rede social · patrocinado", "avatar": "AD",
+      "headline": "Vídeo: apresentadora famosa diz que vai devolver R$ 500 a quem se cadastrar no site até hoje",
+      "media": "Vídeo de 0:22 com a apresentadora falando direto para a câmera", "truth": "fab",
+      "signals": [
+        { "type": "a", "text": "Promessa de dinheiro fácil com prazo curto" },
+        { "type": "a", "text": "Pede cadastro em site desconhecido" },
+        { "type": "c", "text": "Lábios levemente fora de sincronia com a voz" },
+        { "type": "a", "text": "Não aparece nos perfis oficiais da apresentadora" }
+      ],
+      "steps": [4, 5, 2, 6],
+      "note": "Na simulação, era um deepfake usado em golpe. Personalidades não distribuem dinheiro por anúncios; confira nos perfis oficiais."
+    },
+    {
+      "id": 6, "kind": "Alerta", "who": "Defesa Civil de Vale Azul", "where": "Canal oficial · 06:10", "avatar": "DC",
+      "headline": "Alerta de chuva forte entre 14h e 20h. Evite áreas de alagamento e, em emergência, ligue 199.",
+      "media": "Mesmo alerta publicado no site oficial e repetido por dois jornais locais", "truth": "real",
+      "signals": [
+        { "type": "t", "text": "Canal oficial do órgão responsável" },
+        { "type": "t", "text": "Mesmo conteúdo em várias fontes independentes" },
+        { "type": "t", "text": "Orientação prática, sem pedir dados ou dinheiro" },
+        { "type": "c", "text": "Confira se o canal é o perfil verificado" }
+      ],
+      "steps": [2, 3, 6],
+      "note": "Na simulação, o alerta era verdadeiro. Informações de segurança de fonte oficial confirmada são boas de repassar."
+    }
+  ],
+  "hunts": [
+    {
+      "id": 0, "who": "Número desconhecido", "where": "Mensagem direta · 10:02", "avatar": "+55", "kind": "SMS",
+      "segments": [
+        { "text": "Olá! ", "clue": false, "explanation": null },
+        { "text": "Seu CPF foi sorteado", "clue": true, "explanation": "Ninguém “sorteia” CPF. É uma isca para chamar atenção." },
+        { "text": " no programa Bolsa Digital 2026 ", "clue": true, "explanation": "Programa com nome genérico, que você nunca ouviu falar. Procure no gov.br antes." },
+        { "text": "e você tem direito a ", "clue": false, "explanation": null },
+        { "text": "R$ 1.320 liberados hoje", "clue": true, "explanation": "Valor alto e prazo curto criam pressa." },
+        { "text": ". Para receber, ", "clue": false, "explanation": null },
+        { "text": "clique no link e informe seus dados bancários", "clue": true, "explanation": "Órgãos públicos não pedem dados bancários por link." },
+        { "text": ": bolsadigital-gov.site. ", "clue": true, "explanation": "O endereço imita o governo, mas sites oficiais terminam em .gov.br." },
+        { "text": "Prazo encerra às 18h.", "clue": true, "explanation": "Prazo curtíssimo para impedir que você pense." }
+      ]
+    },
+    {
+      "id": 1, "who": "Portal Verdade Agora", "where": "Site · sem data", "avatar": "VA", "kind": "Notícia",
+      "segments": [
+        { "text": "CHOCANTE: ", "clue": true, "explanation": "Palavras de choque em maiúsculas buscam emoção, não informação." },
+        { "text": "cientistas confirmam ", "clue": true, "explanation": "“Cientistas” sem nome, instituição ou estudo citado." },
+        { "text": "que beber água gelada depois do almoço causa câncer. ", "clue": true, "explanation": "Afirmação de causa grave sem nenhuma evidência apresentada." },
+        { "text": "A informação foi publicada ", "clue": false, "explanation": null },
+        { "text": "por especialistas internacionais", "clue": true, "explanation": "Fonte vaga, impossível de conferir." },
+        { "text": " e já foi lida por milhões de pessoas. ", "clue": true, "explanation": "Popularidade não é prova de verdade." },
+        { "text": "O texto termina com um botão para ", "clue": false, "explanation": null },
+        { "text": "comprar um filtro especial", "clue": true, "explanation": "A notícia vende um produto: veja a intenção por trás." },
+        { "text": ".", "clue": false, "explanation": null }
+      ]
+    },
+    {
+      "id": 2, "who": "Grupo do bairro", "where": "Encaminhada · 19:40", "avatar": "GB", "kind": "Vídeo",
+      "segments": [
+        { "text": "Vídeo de 0:15 mostra o prefeito de Vale Azul ", "clue": false, "explanation": null },
+        { "text": "dizendo que vai fechar o posto de saúde do bairro", "clue": false, "explanation": null },
+        { "text": ". A imagem tem ", "clue": false, "explanation": null },
+        { "text": "a boca do prefeito fora de sincronia com a fala", "clue": true, "explanation": "Falta de sincronia entre boca e voz é um sinal comum de deepfake." },
+        { "text": " e ", "clue": false, "explanation": null },
+        { "text": "as letras da placa ao fundo estão embaralhadas", "clue": true, "explanation": "Textos ilegíveis em placas são falhas frequentes de imagens geradas por IA." },
+        { "text": ". A mensagem diz: ", "clue": false, "explanation": null },
+        { "text": "“a mídia não vai mostrar, espalhe antes que apaguem”", "clue": true, "explanation": "Pedido de espalhar rápido e acusação de censura são táticas de manipulação." },
+        { "text": ". ", "clue": false, "explanation": null },
+        { "text": "Não há link para nenhum canal oficial da prefeitura.", "clue": true, "explanation": "Sem origem confirmável. Procure o canal oficial antes de acreditar." }
+      ]
+    }
+  ],
+  "checklist": [
+    { "id": 0, "question": "Dá para saber quem publicou (veículo, órgão ou autor)?", "good": true },
+    { "id": 1, "question": "Tem data e local?", "good": true },
+    { "id": 2, "question": "A mesma informação aparece em outras fontes confiáveis?", "good": true },
+    { "id": 3, "question": "O texto cita uma fonte que você consegue abrir e conferir?", "good": true },
+    { "id": 4, "question": "A mensagem usa urgência, medo ou raiva (“URGENTE”, “repasse já”)?", "good": false },
+    { "id": 5, "question": "Pede dinheiro, dados pessoais ou cadastro em um link?", "good": false },
+    { "id": 6, "question": "O título promete algo exagerado ou bom demais para ser verdade?", "good": false },
+    { "id": 7, "question": "A imagem, o vídeo ou o áudio aparece sem contexto (sem data, local ou origem)?", "good": false }
+  ],
+  "deepfakeQuiz": [
+    {
+      "id": 0,
+      "question": "Você recebe um vídeo de um político famoso dizendo algo absurdo. A imagem parece perfeita, sem nenhuma falha. O que isso significa?",
+      "options": ["Que o vídeo é verdadeiro", "Pouco: deepfakes atuais podem não ter falhas visíveis, então é preciso checar o contexto", "Que foi feito por uma emissora de TV"],
+      "correct": 1,
+      "explanation": "A ausência de defeitos não prova nada. Procure o vídeo nos canais oficiais e em veículos de imprensa."
+    },
+    {
+      "id": 1,
+      "question": "Sua tia recebe um áudio com a sua voz pedindo dinheiro urgente. Qual é a melhor orientação para ela?",
+      "options": ["Fazer o Pix rápido para ajudar", "Ligar para você no número que ela já tem salvo antes de qualquer coisa", "Responder o áudio pedindo mais detalhes"],
+      "correct": 1,
+      "explanation": "Combinar uma palavra-senha na família e confirmar por outro canal são as defesas mais eficazes contra deepfake de voz."
+    },
+    {
+      "id": 2,
+      "question": "Qual destes é o sinal mais confiável de que um conteúdo merece desconfiança?",
+      "options": ["A imagem ter boa qualidade", "O conteúdo não aparecer em nenhuma fonte oficial nem na imprensa", "Ter sido enviado por alguém conhecido"],
+      "correct": 1,
+      "explanation": "Contexto e origem pesam mais do que a aparência. Pessoas conhecidas também repassam conteúdo falso sem saber."
+    }
+  ]
+}

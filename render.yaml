@@ -1,0 +1,35 @@
+# Render Blueprint - sobe o Clareia completo (backend + frontend), ambos no plano gratuito.
+# Importe em https://dashboard.render.com -> New -> Blueprint -> selecione este repositorio.
+services:
+  # ---- Backend Spring Boot (via Docker) ----
+  - type: web
+    name: clareia-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/content
+    autoDeploy: true
+    envVars:
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:MaxRAMPercentage=65"
+      - key: H2_CONSOLE
+        value: "false"
+
+  # ---- Frontend Next.js ----
+  - type: web
+    name: clareia-frontend
+    runtime: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22.13.1"
+      # A URL do backend e injetada automaticamente a partir do outro servico.
+      - key: CLAREIA_API_URL
+        fromService:
+          type: web
+          name: clareia-backend
+          property: host

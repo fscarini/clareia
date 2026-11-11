@@ -1,0 +1,8 @@
+target/
+frontend/
+*.log
+cp.txt
+.git/
+.gitignore
+README.md
+render.yaml
