@@ -27,9 +27,9 @@ services:
     envVars:
       - key: NODE_VERSION
         value: "22.13.1"
-      # A URL do backend e injetada automaticamente a partir do outro servico.
+      # Defina com a URL publica COMPLETA do backend apos o primeiro deploy, ex.:
+      # https://clareia-backend-XXXX.onrender.com (o Render adiciona um sufixo quando
+      # o nome ja existe). Nao use fromService.host aqui: ele devolve so o nome do
+      # servico, sem ".onrender.com", e o proxy do Next falha.
       - key: CLAREIA_API_URL
-        fromService:
-          type: web
-          name: clareia-backend
-          property: host
+        sync: false
